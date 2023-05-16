@@ -116,7 +116,6 @@ export default class Game extends Observable {
 
         if (this.hasMine(i, j)) {
             super.trigger("loose", this);
-            this.reset();
             return;
         }
 
@@ -143,7 +142,6 @@ export default class Game extends Observable {
 
         if (this.isWin()) {
             super.trigger("win", this);
-            this.reset();
         }
 
         super.trigger("change", this);

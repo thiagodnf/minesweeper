@@ -144,17 +144,30 @@ function drawCanvas() {
     }
 }
 
+function showAlert(title, msg) {
+
+    $("#alert .modal-title").text(title);
+    $("#alert .modal-body").text(msg);
+    $('#alert').modal('show');
+
+    document.getElementById('alert').addEventListener('hidden.bs.modal', event => {
+        options.showField = false;
+        game.reset();
+    });
+}
+
 function resetGame() {
 
     game = new Game(rows, columns, numberOfBombs);
 
     game.on("win", function (game) {
-        alert("You win!")
+        showAlert("Congratulations!", "You win!")
         stopWatch.stop();
     });
 
     game.on("loose", function () {
-        alert("You loose!")
+        options.showField = true;
+        showAlert("=(", "You loose!")
         stopWatch.stop();
     });
 
