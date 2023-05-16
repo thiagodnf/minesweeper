@@ -215,7 +215,7 @@ function init() {
 
 
 function resizeCanvas(){
-    $(".card").height($(window).height()-150);
+    $(".card").height($(window).height()-100);
 }
 
 $(function () {

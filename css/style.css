@@ -7,3 +7,7 @@ canvas {
     border-radius: .25rem;
     border: 1px solid rgba(0, 0, 0, .125);
 }
+
+.card .card-header{
+    min-height: 47px !important;
+}
