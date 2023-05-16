@@ -8,6 +8,10 @@ A grid-based puzzle game where players avoid hidden mines using numbered clues
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
+## Screenshots
+
+![Screenshot 2023-05-16 at 7 03 28 PM](https://github.com/thiagodnf/minesweeper/assets/114015/b98ba625-67af-4d17-b5e2-918e30871c20)
+
 ## Questions or Suggestions
 
 Feel free to create <a href="https://github.com/thiagodnf/minesweeper/issues">issues</a> here as you need
