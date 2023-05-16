@@ -34,11 +34,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 I open-source almost everything I can, and I try to reply to everyone needing help using these projects. Obviously, this takes time. You can integrate and use these projects in your applications for free! You can even change the source code and redistribute (even resell it).
 
-However, if you get some profit from this or just want to encourage me to continue creating stuff, there are a few ways you can do it:
+However, if you get some profit from this or just want to encourage me to continue creating stuff, reach out to me if you want to do it.
 
-<a href="https://www.buymeacoffee.com/thiagodnf" target="_blank">
-  <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg" alt="Buy Me A Coffee">
-</a>
-<br/>
-<br/>
-Thanks! ❤️
+Thanks!
+
+❤️
