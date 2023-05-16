@@ -151,7 +151,9 @@ function showAlert(title, msg) {
     $('#alert').modal('show');
 
     document.getElementById('alert').addEventListener('hidden.bs.modal', event => {
-        options.showField = false;
+
+        options.showField = $("#show-field").prop("checked");
+
         game.reset();
     });
 }
