@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Minesweeper</title>
+
+    <meta name="author" content="Thiago Ferreira">
+    <meta name="description" content="A grid-based puzzle game where players avoid hidden mines using numbered clues">
+    <meta name="keywords" content="game, minesweeper">
+    <meta name="robots" content="index, follow">
+
+    <!-- Vendor -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Application -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Minesweeper</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="me-3">🚩 <span id="number-of-flags">0</span></span>
+                    <span>⏱️ <span id="elapsed-time">0s</span></span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <canvas id="canvas" width="600px" height="400px"></canvas>
+                        </div>
+                        <div class="col-auto">
+
+                            <p class="fw-bold">Settings</p>
+
+                            <form>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="show-field">
+                                    <label class="form-check-label" for="show-field">Show Field</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="show-mines">
+                                    <label class="form-check-label" for="show-mines">Show Mines</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="show-hints">
+                                    <label class="form-check-label" for="show-hints">Show Hints</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="show-flags">
+                                    <label class="form-check-label" for="show-flags">Show Flags</label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </main>
+    <footer>
+        <!-- Vendor -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://chancejs.com/chance.min.js"></script>
+
+        <!-- Util-->
+        <script type="module" src="src/main.js"></script>
+    </footer>
+
+</body>
+
+</html>

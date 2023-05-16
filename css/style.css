@@ -1,0 +1,8 @@
+body {
+    margin-top: 80px
+}
+
+canvas {
+    border-radius: .25rem;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
