@@ -44,7 +44,7 @@ export default class StopWatch extends Observable {
         let that = this;
 
         if (!this.interval) {
-            this.interval = setInterval(function () { that.count() }, 1000);
+            this.interval = setInterval(function () { that.count(); }, 1000);
         }
     }
 

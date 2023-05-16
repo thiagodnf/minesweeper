@@ -12,7 +12,7 @@ export default class Game extends Observable {
         this.rows = rows;
         this.columns = columns;
         this.numberOfBombs = numberOfBombs;
-        this.availableFlags = numberOfBombs
+        this.availableFlags = numberOfBombs;
 
         this.cells = [];
         this.bombs = [];
@@ -56,7 +56,7 @@ export default class Game extends Observable {
     reset() {
 
         this.flags = {};
-        this.availableFlags = this.numberOfBombs
+        this.availableFlags = this.numberOfBombs;
 
         this.cells = MatrixUtils.create(this.rows, this.columns, () => new GameCell());
         this.bombs = RandomUtils.nextCells(this.cells, this.numberOfBombs);
@@ -121,7 +121,7 @@ export default class Game extends Observable {
         }
 
         if (!this.hasHint(i, j)) {
-            this.expandCell(i, j)
+            this.expandCell(i, j);
         } else {
             this.cells[i][j].open();
         }

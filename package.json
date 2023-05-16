@@ -4,8 +4,10 @@
 	"description": "A grid-based puzzle game where players avoid hidden mines using numbered clues",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js",
-		"dev": "nodemon app.js",
+		"dev": "npm run lint-fix && node server.js",
+        "lint": "npx eslint .",
+        "export": "next build && next export -o html/",
+        "lint-fix": "npx eslint . --fix",
         "update-dependencies": "ncu -u"
 	},
 	"repository": {
@@ -19,10 +21,12 @@
 	},
 	"homepage": "http://thiagodnf.github.io/minesweeper",
 	"devDependencies": {
-		"nodemon": "^2.0.22"
-	},
-	"dependencies": {
-		"connect": "^3.7.0",
-		"serve-static": "^1.15.0"
+		"nodemon": "^2.0.22",
+        "eslint": "8.40.0",
+        "connect": "3.7.0",
+        "livereload": "0.9.3",
+        "network": "0.6.1",
+        "serve-static": "1.15.0",
+        "winston": "3.8.2"
 	}
 }

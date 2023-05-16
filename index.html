@@ -36,13 +36,8 @@
     </header>
     <main>
         <div class="container-fluid">
-
-            <div class="toolbar mb-3">
-                <button type="button" class="btn btn-primary" id="btn-new-game">New Game</button>
-            </div>
-
             <div class="row">
-                <div class="col-10">
+                <div class="col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10">
                     <div class="card">
                         <div class="card-header">
                             <span class="me-3">🚩 <span id="number-of-flags">0</span></span>
@@ -53,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
                     <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs">
@@ -63,6 +58,10 @@
                             </ul>
                         </div>
                         <div class="card-body">
+                            <div class="d-grid">
+                                <button type="button" class="btn btn-success" id="btn-new-game">New Game</button>
+                            </div>
+                            <hr/>
                             <form>
                                 <div class="row mb-2">
                                     <label for="show-field" class="col-form-label col-6 ">Show Field</label>
@@ -178,6 +177,8 @@
 
         <!-- Util-->
         <script type="module" src="src/main.js"></script>
+
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
     </footer>
 
 </body>

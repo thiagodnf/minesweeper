@@ -65,7 +65,7 @@ function drawText(i, j, text, color = "red") {
     ctx.font = "25px Arial";
     ctx.fillStyle = color;
     ctx.textAlign = "center";
-    ctx.textBaseline = 'middle';
+    ctx.textBaseline = "middle";
 
     ctx.fillText(text, x + squareSize / 2, y + squareSize / 2);
 }
@@ -148,9 +148,9 @@ function showAlert(title, msg) {
 
     $("#alert .modal-title").text(title);
     $("#alert .modal-body").text(msg);
-    $('#alert').modal('show');
+    $("#alert").modal("show");
 
-    document.getElementById('alert').addEventListener('hidden.bs.modal', event => {
+    document.getElementById("alert").addEventListener("hidden.bs.modal", event => {
 
         options.showField = $("#show-field").prop("checked");
 
@@ -163,13 +163,13 @@ function resetGame() {
     game = new Game(rows, columns, mines);
 
     game.on("win", function (game) {
-        showAlert("Congratulations!", "You win!")
+        showAlert("Congratulations!", "You win!");
         stopWatch.stop();
     });
 
     game.on("loose", function () {
         options.showField = true;
-        showAlert("=(", "You loose!")
+        showAlert("=(", "You loose!");
         stopWatch.stop();
     });
 
@@ -223,13 +223,13 @@ $(function () {
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 
-    canvas.addEventListener('mousemove', (e) => {
+    canvas.addEventListener("mousemove", (e) => {
         const rect = canvas.getBoundingClientRect();
         mouseX = e.clientX - rect.left;
         mouseY = e.clientY - rect.top;
     });
 
-    canvas.addEventListener('click', function (event) {
+    canvas.addEventListener("click", function (event) {
 
         event.preventDefault();
 
@@ -239,7 +239,7 @@ $(function () {
         game.leftClick(i, j);
     });
 
-    canvas.addEventListener('contextmenu', function (event) {
+    canvas.addEventListener("contextmenu", function (event) {
 
         event.preventDefault();
         event.stopPropagation();
@@ -253,19 +253,19 @@ $(function () {
     $(window).resize(resizeCanvas).trigger("resize");
 
     $("#show-field").change(function () {
-        options.showField = $(this).prop('checked');
+        options.showField = $(this).prop("checked");
     }).prop("checked", options.showField);
 
     $("#show-mines").change(function () {
-        options.showMines = $(this).prop('checked');
+        options.showMines = $(this).prop("checked");
     }).prop("checked", options.showMines);
 
     $("#show-hints").change(function () {
-        options.showHints = $(this).prop('checked');
+        options.showHints = $(this).prop("checked");
     }).prop("checked", options.showHints);
 
     $("#show-flags").change(function () {
-        options.showFlags = $(this).prop('checked');
+        options.showFlags = $(this).prop("checked");
     }).prop("checked", options.showFlags);
 
     $("#rows").change(function () {
