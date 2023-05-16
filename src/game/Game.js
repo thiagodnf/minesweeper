@@ -55,6 +55,7 @@ export default class Game extends Observable {
 
     reset() {
 
+        this.flags = {};
         this.availableFlags = this.numberOfBombs
 
         this.cells = MatrixUtils.create(this.rows, this.columns, () => new GameCell());
