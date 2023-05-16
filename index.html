@@ -35,46 +35,91 @@
         </nav>
     </header>
     <main>
-        <div class="container">
+        <div class="container-fluid">
 
-            <div class="card">
-                <div class="card-header">
-                    <span class="me-3">🚩 <span id="number-of-flags">0</span></span>
-                    <span>⏱️ <span id="elapsed-time">0s</span></span>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
+            <div class="toolbar mb-3">
+                <button type="button" class="btn btn-primary" id="btn-new-game">New Game</button>
+            </div>
+
+            <div class="row">
+                <div class="col-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="me-3">🚩 <span id="number-of-flags">0</span></span>
+                            <span>⏱️ <span id="elapsed-time">0s</span></span>
+                        </div>
+                        <div class="card-body overflow-auto" style="height: 500px">
                             <canvas id="canvas" width="600px" height="400px"></canvas>
                         </div>
-                        <div class="col-auto">
-
-                            <p class="fw-bold">Settings</p>
-
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs">
+                                <li class="nav-item">
+                                    <span class="nav-link active" href="#">Settings</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
                             <form>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="show-field">
-                                    <label class="form-check-label" for="show-field">Show Field</label>
+                                <div class="row mb-2">
+                                    <label for="show-field" class="col-form-label col-6 ">Show Field</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <div class="form-check form-switch d-flex align-items-center ">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="show-field">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="show-mines">
-                                    <label class="form-check-label" for="show-mines">Show Mines</label>
+                                <div class="row mb-2">
+                                    <label for="show-mines" class="col-form-label col-6 ">Show Mines</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <div class="form-check form-switch d-flex align-items-center ">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="show-mines">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="show-hints">
-                                    <label class="form-check-label" for="show-hints">Show Hints</label>
+                                <div class="row mb-2">
+                                    <label for="show-hints" class="col-form-label col-6 ">Show Hints</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <div class="form-check form-switch d-flex align-items-center ">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="show-hints">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="show-flags">
-                                    <label class="form-check-label" for="show-flags">Show Flags</label>
+                                <div class="row mb-2">
+                                    <label for="show-flags" class="col-form-label col-6 ">Show Flags</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <div class="form-check form-switch d-flex align-items-center ">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="show-flags">
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="row mb-2">
+                                    <label for="rows" class="col-form-label col-6 ">Rows</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <input type="number" class="form-control form-control-sm" id="rows" min="5" max="50" step="1">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="columns" class="col-form-label col-6 ">Columns</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <input type="number" class="form-control form-control-sm" id="columns" min="5" max="50" step="1">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="mines" class="col-form-label col-6 ">Mines</label>
+                                    <div class="col-6 d-flex align-items-center justify-content-end">
+                                        <input type="number" class="form-control form-control-sm" id="mines" min="5" max="100" step="1">
+                                    </div>
+                                </div>
 
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="modal" id="alert" tabindex="-1">
@@ -84,8 +129,38 @@
                         <p class="modal-title"></p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="new-game-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title"></p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="settings-modal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title"></p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body">
-                        ...
+                        oi
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -93,6 +168,7 @@
                 </div>
             </div>
         </div>
+
     </main>
     <footer>
         <!-- Vendor -->

@@ -7,7 +7,7 @@ let rows = 10;
 let columns = 10;
 let squareSize = 40;
 
-let numberOfBombs = 15;
+let mines = 15;
 
 let stopWatch = new StopWatch();
 
@@ -160,7 +160,7 @@ function showAlert(title, msg) {
 
 function resetGame() {
 
-    game = new Game(rows, columns, numberOfBombs);
+    game = new Game(rows, columns, mines);
 
     game.on("win", function (game) {
         showAlert("Congratulations!", "You win!")
@@ -199,6 +199,9 @@ function init() {
 
     console.debug("Initializing game");
 
+    canvas.width = columns * squareSize;
+    canvas.height = rows * squareSize;
+
     resetGame();
 
     stopWatch.on("change", function (elapsedTime) {
@@ -208,6 +211,11 @@ function init() {
     stopWatch.start();
 
     window.requestAnimationFrame(animate);
+}
+
+
+function resizeCanvas(){
+    $(".card").height($(window).height()-150);
 }
 
 $(function () {
@@ -242,8 +250,7 @@ $(function () {
         game.rightClick(i, j);
     });
 
-    canvas.width = columns * squareSize;
-    canvas.height = rows * squareSize;
+    $(window).resize(resizeCanvas).trigger("resize");
 
     $("#show-field").change(function () {
         options.showField = $(this).prop('checked');
@@ -260,6 +267,25 @@ $(function () {
     $("#show-flags").change(function () {
         options.showFlags = $(this).prop('checked');
     }).prop("checked", options.showFlags);
+
+    $("#rows").change(function () {
+        rows = parseInt($(this).val());
+        init();
+    }).val(rows);
+
+    $("#columns").change(function () {
+        columns = parseInt($(this).val());
+        init();
+    }).val(columns);
+
+    $("#mines").change(function () {
+        mines = parseInt($(this).val());
+        init();
+    }).val(mines);
+
+    $("#btn-new-game").click(function () {
+        init();
+    });
 
     init();
 });
