@@ -1,13 +1,15 @@
 import StopWatch from "./game/StopWatch.js";
 import Game from "./game/Game.js";
+import RandomUtils from "./utils/RandomUtils.js";
 
 let game = null;
 
 let rows = 10;
 let columns = 10;
-let squareSize = 40;
-
 let mines = 15;
+let seed = new Date().getTime();
+
+let squareSize = 40;
 
 let stopWatch = new StopWatch();
 
@@ -146,8 +148,8 @@ function drawCanvas() {
 
 function showAlert(title, msg) {
 
-    $("#alert .modal-title").text(title);
-    $("#alert .modal-body").text(msg);
+    $("#alert .modal-title").html(title);
+    $("#alert .modal-body").html(msg);
     $("#alert").modal("show");
 
     document.getElementById("alert").addEventListener("hidden.bs.modal", event => {
@@ -214,11 +216,20 @@ function init() {
 }
 
 
-function resizeCanvas(){
-    $(".card").height($(window).height()-100);
+function resizeCanvas() {
+    $(".card").height($(window).height() - 100);
 }
 
 $(function () {
+
+    var url = new Url;
+
+    rows = parseInt(url.query.rows || rows);
+    columns = parseInt(url.query.columns || rows);
+    mines = parseInt(url.query.mines || mines);
+    seed = parseInt(url.query.seed || seed);
+
+    RandomUtils.setSeed(seed);
 
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
@@ -268,6 +279,11 @@ $(function () {
         options.showFlags = $(this).prop("checked");
     }).prop("checked", options.showFlags);
 
+    $("#seed").change(function () {
+        seed = parseInt($(this).val());
+        init();
+    }).val(seed);
+
     $("#rows").change(function () {
         rows = parseInt($(this).val());
         init();
@@ -285,6 +301,20 @@ $(function () {
 
     $("#btn-new-game").click(function () {
         init();
+    });
+
+    $("#btn-share").click(function () {
+
+        let u = new Url;
+
+        u.clearQuery();
+
+        u.query.seed = seed;
+        u.query.rows = rows;
+        u.query.columns = columns;
+        u.query.mines = mines;
+
+        showAlert("<i class=\"bi bi-share me-2\"></i>Share", `<textarea rows="3" class="form-control">${u.toString()}</textarea>`);
     });
 
     init();

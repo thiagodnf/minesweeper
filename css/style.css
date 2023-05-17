@@ -8,6 +8,10 @@ canvas {
     border: 1px solid rgba(0, 0, 0, .125);
 }
 
-.card .card-header{
+.card .card-header {
     min-height: 47px !important;
+}
+
+textarea {
+    font-size: 14px !important;
 }
